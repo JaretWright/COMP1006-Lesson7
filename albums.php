@@ -14,7 +14,16 @@
 
 <body>
     <h1>Albums</h1>
-    <a href="AlbumDetails.php">Add a new Album</a>
+
+    <?php
+        //start a session
+        session_start();
+
+        //validate if the user is active
+        if (!empty($_SESSION['email']))
+            echo '<a href="AlbumDetails.php">Add a new Album</a>';
+    ?>
+
 
     <?php
 
@@ -39,20 +48,30 @@
             <tr><th>Title</th>
                 <th>Year</th>
                 <th>Artist</th>
-                <th>Genre</th>
-                <th>Edit</th>
-                <th>Delete</th></tr>';
+                <th>Genre</th>';
+
+        if (!empty($_SESSION['email'])){
+            echo '<th>Edit</th>
+                  <th>Delete</th>';
+        }
+
+        echo '</tr>';
 
         foreach($albums as $album)
         {
             echo '<tr><td>'.$album['title'].'</td>
                       <td>'.$album['year'].'</td>
                       <td>'.$album['artist'].'</td>
-                      <td>'.$album['genre'].'</td>
-                      <td><a href="AlbumDetails.php?albumID='.$album['albumID'].'"
+                      <td>'.$album['genre'].'</td>';
+
+            //only show the edit and delete links if these are valid, logged in users
+            if (!empty($_SESSION['email'])){
+                echo '<td><a href="AlbumDetails.php?albumID='.$album['albumID'].'"
                                 class="btn btn-primary">Edit</a></td>
                       <td><a href="deleteAlbum.php?albumID='.$album['albumID'].'" 
-                                class="btn btn-danger confirmation">Delete</a></td></tr>';
+                                class="btn btn-danger confirmation">Delete</a></td>';
+            }
+            echo '</tr>';
         }
 
         echo '</table>';

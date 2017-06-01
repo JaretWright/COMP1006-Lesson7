@@ -67,7 +67,7 @@
         $conn = null;
 
         //Step 5 - redirect to the login page
-        //header('location:login.php');
+        header('location:login.php');
     }
 ?>
 </body>
