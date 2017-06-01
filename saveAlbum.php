@@ -14,8 +14,7 @@
     $genre = $_POST['genre'];
 
     //step 1 - connect to the database
-    $conn = new PDO('mysql:host=localhost;dbname=php','root', 'admin');
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    require_once ('db.php');
 
     //step 2 - create the SQL command to INSERT or UPDATE a record
     if (!empty($albumID)){

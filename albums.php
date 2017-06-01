@@ -28,7 +28,7 @@
     <?php
 
         //step 1 - connect to the database
-        $conn = new PDO('mysql:host=localhost;dbname=php', 'root', 'admin');
+        require_once('db.php');
 
         //step 2 - create a SQL command
         $sql = "SELECT * FROM albums";
@@ -74,18 +74,9 @@
             echo '</tr>';
         }
 
+
         echo '</table>';
 
+        require_once ('footer.php');
     ?>
 
-</body>
-
-<!-- Latest jQuery -->
-<script src="js/jquery-3.2.1.min.js"></script>
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="js/bootstrap.min.js" ></script>
-
-<!-- custom js -->
-<script src="js/app.js"></script>
-</html>

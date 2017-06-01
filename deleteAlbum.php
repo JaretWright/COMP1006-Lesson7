@@ -9,8 +9,7 @@
 <body>
 <?php
     //Step 1 - connect to the DB
-    $conn = new PDO('mysql:host=localhost;dbname=php','root','admin');
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    require_once ('db.php');
 
     //Step 2 - Create SQL query
     $sql = "DELETE FROM albums WHERE albumID = :albumID";

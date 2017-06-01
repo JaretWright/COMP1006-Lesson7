@@ -4,7 +4,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 //Step 1 - connect to the DB
-$conn= new PDO('mysql:host=localhost;dbname=php','root','admin');
+require_once ('db.php');
 
 //Step 2 - build the sql command
 $sql = "SELECT * FROM users WHERE email = :email";

@@ -37,8 +37,7 @@
     {
         //connect to the DB and setup the new user
         //Step 1 - connect to the DB
-        $conn = new PDO('mysql:host=localhost;dbname=php','root','admin');
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        require_once ('db.php');
         //Step 2 - create the SQL command
         $sql = "INSERT INTO users VALUES (:email, :username, :password)";
 

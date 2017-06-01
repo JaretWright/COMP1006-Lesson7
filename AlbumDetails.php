@@ -30,7 +30,8 @@
             //load the album from the DB
             if (!empty($albumID))
             {
-                $conn = new PDO('mysql:host=localhost;dbname=php','root','admin');
+                require_once('db.php');
+
                 $sql = "SELECT * FROM albums WHERE albumID = :albumID";
                 $cmd = $conn->prepare($sql);
                 $cmd->bindParam(':albumID', $albumID, PDO::PARAM_INT);
